@@ -10,10 +10,10 @@
           <a class="nav-link <?= \Config\Services::request()->uri->getSegment(1) == '' ? 'active' : '' ?> " aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= \Config\Services::request()->uri->getSegment(1) == '' ? 'active' : '' ?> " href="/about">About</a>
+          <a class="nav-link <?= \Config\Services::request()->uri->getSegment(1) == 'about' ? 'active' : '' ?> " href="/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= \Config\Services::request()->uri->getSegment(1) == '' ? 'active' : '' ?> " href="/posts">Posts</a>
+          <a class="nav-link <?= \Config\Services::request()->uri->getSegment(1) == 'posts' ? 'active' : '' ?> " href="/posts">Posts</a>
         </li>
       </ul>
     </div>
