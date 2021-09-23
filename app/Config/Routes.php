@@ -40,6 +40,7 @@ $routes->get('/', function () {
     echo view('v_home');
     echo view('layout/footer');
 });
+$routes->get('/admin', 'Template::index');
 $routes->get('/posts', 'PostController::index');
 $routes->get('/about', function () {
     $data = [
