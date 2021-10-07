@@ -41,6 +41,9 @@ $routes->get('/', function () {
     echo view('layout/footer');
 });
 $routes->get('/admin', 'Template::index');
+$routes->get('/register', 'Template::register');
+$routes->post('/saveRegister', 'Template::saveRegister');
+//dia menggunakan post karena disesuaikan dengan method pada v_register
 $routes->get('/posts', 'PostController::index');
 $routes->get('/about', function () {
     $data = [
