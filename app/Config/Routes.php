@@ -40,7 +40,7 @@ $routes->get('/', function () {
     echo view('v_home');
     echo view('layout/footer');
 });
-$routes->get('/admin', 'Template::index');
+
 $routes->get('/register', 'Template::register');
 $routes->post('/saveRegister', 'Template::saveRegister');
 //dia menggunakan post karena disesuaikan dengan method pada v_register
@@ -55,6 +55,10 @@ $routes->get('/about', function () {
     echo view('layout/footer');
 });
 
+$routes->get('/admin', 'Template::index');
+$routes->get('/admin/posts', 'AdminPostController::index');
+$routes->get('/admin/posts/create', 'AdminPostController::create');
+$routes->post('/admin/posts/store', 'AdminPostController::store');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
