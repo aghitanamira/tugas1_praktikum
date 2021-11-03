@@ -216,7 +216,13 @@
             </div>
             <!-- /.content-header -->
             <div class="container">
-                <a href="/admin/posts/create" class="btn btn-primary"> Tambah Data </a>
+                <a href="/admin/posts/create" class="btn btn-primary mt-3"> Tambah Data </a>
+               <!-- /.Display Response --> 
+                    <?php  if (session()->getFlashdata('pesan')) : ?>
+                        <div class="alert alert-success" role="alert">
+                            <?= session()->getFlashdata('pesan'); ?>
+                        </div>
+                    <?php endif; ?>
                 <div class = "card mt-3">
                     <div class = "card-header">
                         Daftar Postingan
@@ -243,8 +249,12 @@
                                             <td><?= $post['author']; ?></td>
                                             <td><?= $post['kategori']; ?></td>
                                             <td>
-                                                <a href="admin/posts/edit/<?= $post['slug'] ?>" class="btn btn-sm btn-warning me-1"><i class="fas fa-edit"></i> Edit </a>
-                                                <a href="admin/posts/hapus/<?= $post['slug'] ?>" class="btn btn-sm btn-danger me-1"><i class="fas fa-hapus"></i> Hapus </a>
+                                                <a href="/admin/posts/edit/<?= $post['slug'] ?>" class="btn btn-sm btn-warning me-1"><i class="fas fa-edit"></i> Edit </a>
+                                                <form action="/admin/posts/<?= $post['slug'] ?>" method="post" class="d-inline">
+                                                        <?= csrf_field(); ?>
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <button type="submit" class="btn btn-sm btn-danger me-1" onclick="return confirm('Apakah anda yakin menghapus Post ini ?'); "><i class="fas fa-hapus"></i> Hapus</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
